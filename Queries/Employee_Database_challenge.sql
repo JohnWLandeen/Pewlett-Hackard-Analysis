@@ -6,6 +6,8 @@ FROM employees AS e;
 SELECT t.title, t.from_date, t.to_date
 FROM Titles AS t
 
+
+
 -- Create a new table using the INTO clause.
 -- Join both tables on the primary key.
 -- Filter the data on the birth_date column to retrieve the employees who were born between 1952 and 1955. Then, order by the employee number.
@@ -19,8 +21,10 @@ ORDER BY e.emp_no;
 
 SELECT * FROM retirement_titles;
 
--- Export the Retirement Titles table.
+-- Export the retirement_titles table.
 COPY public."retirement_titles" TO 'C:\Users\Public\retirement_titles.CSV' DELIMITER ',' CSV HEADER;
+
+
 
 -- Use Dictinct with Orderby to remove duplicate rows
 SELECT DISTINCT ON (r.emp_no) r.emp_no,
@@ -35,8 +39,10 @@ ORDER BY emp_no ASC, to_date DESC;
 
 SELECT * FROM unique_titles;
 
--- Export the Retirement Titles table.
+-- Export the unique_titles table.
 COPY public."unique_titles" TO 'C:\Users\Public\unique_titles.CSV' DELIMITER ',' CSV HEADER;
+
+
 
 -- Retrieve the number of employees by their most recent job title who are about to retire.
 SELECT COUNT(u.emp_no), u.title
@@ -47,8 +53,10 @@ ORDER BY u.count DESC;
 
 SELECT * FROM retiring_titles;
 
--- Export the Retirement Titles table.
+-- Export the retiring_tiles table.
 COPY public."retiring_titles" TO 'C:\Users\Public\retiring_titles.CSV' DELIMITER ',' CSV HEADER;
+
+
 
 -- write a query to create a Mentorship Eligibility table that holds the employees who are eligible to participate in a mentorship program.
 SELECT DISTINCT ON (e.emp_no) e.emp_no, e.first_name, e.last_name, e.birth_date, de.from_date, de.to_date, t.title
