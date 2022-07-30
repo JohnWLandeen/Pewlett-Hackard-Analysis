@@ -75,3 +75,11 @@ SELECT * FROM mentorship_eligibilty
 -- Export the Mentorship Eligibility table
 COPY public."mentorship_eligibilty" TO 'C:\Users\Public\mentorship_eligibilty.CSV' DELIMITER ',' CSV HEADER;
 
+
+-- Additional grouping table for general employee size.
+SELECT COUNT(e.emp_no), t.title
+FROM employees as e
+JOIN titles as t
+ON (e.emp_no = t.emp_no)
+GROUP BY t.title
+ORDER BY e.count DESC;
