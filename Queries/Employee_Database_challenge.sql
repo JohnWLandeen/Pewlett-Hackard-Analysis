@@ -83,3 +83,24 @@ JOIN titles as t
 ON (e.emp_no = t.emp_no)
 GROUP BY t.title
 ORDER BY e.count DESC;
+
+
+-- Storing the sum of every unique occurance of employee number existing twice in emp_no.
+SELECT SUM (mycount/2)
+FROM
+	(SELECT DISTINCT emp_no, COUNT(emp_no) AS mycount
+	FROM retirement_titles 
+	GROUP BY emp_no 
+	HAVING COUNT(emp_no) = 2) as count;
+	
+-- my_actual_count = mycount/2 because we are adding up every occurance of a 2.
+
+-- Storing the sum of every unique occurance of employee number existing twice in emp_no.
+SELECT SUM (mycount/3)
+FROM
+	(SELECT DISTINCT emp_no, COUNT(emp_no) AS mycount
+	FROM retirement_titles 
+	GROUP BY emp_no 
+	HAVING COUNT(emp_no) = 3) as count;
+
+-- my_actual_count = mycount/3 because we are adding up every occurance of a 3.
