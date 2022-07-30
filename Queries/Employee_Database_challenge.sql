@@ -12,7 +12,7 @@ FROM Titles AS t
 -- Join both tables on the primary key.
 -- Filter the data on the birth_date column to retrieve the employees who were born between 1952 and 1955. Then, order by the employee number.
 SELECT e.emp_no, e.first_name, e.last_name, t.title, t.from_date, t.to_date
-
+INTO retirement_titles
 FROM employees AS e
 JOIN titles AS t
 ON (t.emp_no = e.emp_no)
