@@ -9,12 +9,19 @@ This analysis searches to account for employees nearing retirement and those lik
 ## Results
 
  * By joining the titles and employees tables, we find multiple records with the same name but different titles.
+  
  ![alt text](Images/retirement_titles.PNG)
+ 
  * With some employees owning multiple titles having worked with the company for a large period of time, we remove all rows with duplicate names.
+ 
  ![alt text](Images/unique_titles.PNG)
+ 
  * The count function provides the number of employees approaching retirement by company title.
+ 
  ![alt text](Images/retiring_titles_count.PNG)
+ 
  * Through joining 3 tables, we find all currently employed employees approaching retirement who are eligible for mentoring the next generation.
+ 
  ![alt text](Images/mentorship_eligibilty.PNG)
 
 
